@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Health Dashboard</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">PERSONAL HEALTH</p>
+        <h1>Daily Dashboard</h1>
+        <p id="dateLabel" class="muted"></p>
+      </div>
+      <button id="refreshBtn" class="button">Refresh</button>
+    </header>
+
+    <section id="metricGrid" class="metric-grid" aria-label="Today's health metrics"></section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">TRAINING</p>
+          <h2>Today</h2>
+        </div>
+      </div>
+      <div id="workouts"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">TREND</p>
+          <h2>Recent days</h2>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Weight</th><th>Steps</th><th>Sleep</th><th>RHR</th><th>HRV</th></tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>Data shown in this revision is sample data. No personal health records are stored in GitHub.</footer>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
