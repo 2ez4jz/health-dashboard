@@ -1,14 +1,34 @@
 # iOS HealthKit Connector
 
-This folder contains the source for the first connector.
+The repository now contains a minimal Xcode project at `ios/HealthDashboard.xcodeproj`.
 
-## Xcode setup
+## Run on your iPhone
 
-1. Create an iOS App target named `HealthDashboard` using SwiftUI.
-2. Add the **HealthKit** capability in Signing & Capabilities.
-3. Add these privacy strings to the target's Info settings:
-   - `NSHealthShareUsageDescription`: "Health Dashboard reads your health and fitness data to build your private daily dashboard."
-4. Add the Swift files in `HealthDashboard/` to the target.
-5. Run on a physical iPhone. HealthKit is not meaningfully testable with real personal records in the simulator.
+1. Clone or download the repository on your Mac.
+2. Open `ios/HealthDashboard.xcodeproj` in Xcode.
+3. Select the `HealthDashboard` target.
+4. Open **Signing & Capabilities**.
+5. Choose your Apple ID / Personal Team under **Team**.
+6. Confirm **HealthKit** appears under Capabilities.
+7. Connect your iPhone, select it as the run destination, and press **Run**.
+8. On first launch, tap **Connect Apple Health** and approve the requested read permissions.
 
-The current connector only reads data. Upload/sync is intentionally a later step.
+The app currently reads:
+- Weight
+- Steps
+- Active Energy
+- Exercise Minutes
+- Sleep
+- Resting Heart Rate
+- HRV
+- Workouts
+
+## Important
+
+- Test on a physical iPhone for real HealthKit data.
+- This revision is read-only. It does not upload health records anywhere.
+- The bundle identifier is currently `com.ez4jz.healthdashboard`. If Apple reports a signing collision, change it in **Signing & Capabilities** to any unique identifier you own.
+
+## Next milestone
+
+Once today's data reads correctly on-device, the next step is to add `Sync Today` and send the daily summary to the private backend described in `../api/README.md`.
